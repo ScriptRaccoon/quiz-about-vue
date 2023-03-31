@@ -1,5 +1,3 @@
-import type { question } from "@/utils/types";
-
 export const questions: question[] = [
 	{
 		id: "what",

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { question } from "@/utils/types";
 import { ref } from "vue";
 
 const props = defineProps<{
@@ -11,7 +10,7 @@ const emit = defineEmits<{
 }>();
 
 let selected_index = ref(0);
-let evaluation = ref("");
+let message = ref("");
 let submitted = ref(false);
 let correct = ref(false);
 
@@ -24,7 +23,7 @@ function check_answer() {
 	const correct_answer =
 		props.question.answers[props.question.correct_answer_index];
 
-	evaluation.value = correct.value
+	message.value = correct.value
 		? "This is correct!"
 		: "No. The correct answer is: " + correct_answer;
 }
@@ -32,7 +31,7 @@ function check_answer() {
 function next() {
 	emit("finish", correct.value);
 	selected_index.value = 0;
-	evaluation.value = "";
+	message.value = "";
 	submitted.value = false;
 	correct.value = false;
 }
@@ -69,8 +68,8 @@ function next() {
 		</menu>
 	</form>
 
-	<div v-if="submitted" class="evaluation">
-		{{ evaluation }}
+	<div v-if="submitted" class="message">
+		{{ message }}
 	</div>
 </template>
 
@@ -101,14 +100,14 @@ h2 {
 	padding-left: 0.5rem;
 }
 
-.evaluation {
-	font-size: 1.25rem;
-	margin-top: 1.5rem;
-}
-
 menu {
 	margin-top: 1.5rem;
 	display: flex;
 	gap: 0.5rem;
+}
+
+.message {
+	font-size: 1.25rem;
+	margin-top: 1.5rem;
 }
 </style>

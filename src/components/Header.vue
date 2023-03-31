@@ -1,8 +1,6 @@
 <template>
 	<header>
-		<h1>
-			<slot></slot>
-		</h1>
+		<h1>Quiz about Vue</h1>
 	</header>
 </template>
 

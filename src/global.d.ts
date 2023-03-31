@@ -1,4 +1,4 @@
-export type question = {
+type question = {
 	id: string;
 	question: string;
 	answers: string[];

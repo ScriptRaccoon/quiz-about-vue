@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { interval } from "@/utils/helper";
+import { interval } from "@/utils";
 
 const { count, progress } = defineProps<{
 	count: number;
