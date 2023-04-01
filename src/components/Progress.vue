@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { interval } from "@/utils";
-
 const { count, progress } = defineProps<{
 	count: number;
 	progress: number;
@@ -11,7 +9,7 @@ const { count, progress } = defineProps<{
 	<div class="progress" aria-describedby="progress">
 		<div
 			class="bar"
-			v-for="index in interval(count)"
+			v-for="(_, index) in count"
 			:class="{ active: index <= progress }"
 		></div>
 	</div>
