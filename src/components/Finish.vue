@@ -18,7 +18,7 @@ function restart(): void {
 			Out of {{ count }} questions you answered
 			{{ correct_count }} correctly.
 		</p>
-		<menu>
+		<menu aria-label="menu">
 			<button @click="restart">Start over</button>
 		</menu>
 	</section>

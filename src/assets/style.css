@@ -9,9 +9,10 @@
 :root {
 	--background-color: hsl(120, 100%, 3%);
 	--button-color: purple;
-	--answer-color: hsl(120, 100%, 12%);
-	--answer-color-selected: hsl(120, 100%, 30%);
+	--answer-color: hsl(120, 100%, 10%);
+	--answer-color-selected: hsl(120, 100%, 20%);
 	--font-color: white;
+	--outline-color: #fff8;
 }
 
 body {
@@ -35,4 +36,12 @@ button {
 button:disabled {
 	opacity: 0.6;
 	cursor: initial;
+}
+
+.visually-hidden {
+	position: absolute;
+	left: -10000rem;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 }

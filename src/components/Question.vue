@@ -38,10 +38,16 @@ function next() {
 </script>
 
 <template>
-	<form @submit.prevent="check_answer">
-		<h2>{{ props.question.question }}</h2>
+	<form
+		@submit.prevent="check_answer"
+		role="region"
+		aria-label="question"
+	>
+		<h2 aria-live="assertive">
+			{{ props.question.question }}
+		</h2>
 
-		<div class="answers">
+		<section class="answers" aria-label="answers">
 			<label
 				v-for="(answer, index) in props.question.answers"
 				class="answer"
@@ -58,9 +64,9 @@ function next() {
 					{{ answer }}
 				</span>
 			</label>
-		</div>
+		</section>
 
-		<menu>
+		<menu aria-label="menu">
 			<button :disabled="submitted">Submit</button>
 			<button type="button" v-if="submitted" @click="next">
 				Next
@@ -68,7 +74,7 @@ function next() {
 		</menu>
 	</form>
 
-	<div v-if="submitted" class="message">
+	<div class="message" aria-live="assertive">
 		{{ message }}
 	</div>
 </template>
@@ -94,6 +100,7 @@ h2 {
 
 .answer.selected {
 	background-color: var(--answer-color-selected);
+	outline: 0.1rem solid var(--outline-color);
 }
 
 .answer_text {
